@@ -9,6 +9,30 @@ If this **repository** helps you, give it a ⭐ to show your support and help ot
 
 ---
 
+## Table of Contents
+
+- [Introduction](#introduction)  
+- [The Software Development Life Cycle (SDLC)](#the-software-development-life-cycle-sdlc)  
+  - [Phases of SDLC (Modern, Agile/DevOps)](#phases-of-sdlc-modern-agiledevops)  
+- [Waterfall vs Agile/DevOps](#waterfall-vs-agiledevops)  
+  - [Waterfall vs Agile/DevOps – Key Differences](#waterfall-vs-agiledevops--key-differences)  
+- [Role of Git in Modern SDLC](#role-of-git-in-modern-sdlc)  
+- [From SDLC to Build Automation](#from-sdlc-to-build-automation)  
+- [Compiled vs. Interpreted Languages](#compiled-vs-interpreted-languages). 
+  - [Java Artifact Formats](#java-artifact-formats)  
+- [Build Processes in the Real World (DevOps/SRE Lens)](#build-processes-in-the-real-world-devopssre-lens)  
+  - [Compiled Languages – Two-Step Build](#compiled-languages--two-step-build). 
+    - [Containerized Workloads: Compiled Languages](#containerized-workloads-compiled-languages)  
+    - [Non-Containerized Workloads: Compiled Languages](#non-containerized-workloads-compiled-languages)  
+  - [Interpreted Languages – One-Step Build](#interpreted-languages--one-step-build)  
+    - [Non-Containerized Workloads](#non-containerized-workloads)  
+    - [Containerized Workloads](#containerized-workloads)  
+- [Why Build Automation Matters](#why-build-automation-matters)  
+- [Conclusion](#conclusion)  
+- [References](#references)  
+
+---
+
 ## Introduction
 
 Welcome to **Day 1 of Jenkins Basics to Production**. Before diving into Jenkins itself, it’s important to understand the **Software Development Life Cycle (SDLC)** and how modern build and automation practices evolved.
