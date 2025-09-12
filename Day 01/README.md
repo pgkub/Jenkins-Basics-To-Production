@@ -2,6 +2,8 @@
 
 ## Video reference for Day 1 is the following:
 
+[![Watch the video](https://img.youtube.com/vi/imEHsgvJbYo/maxresdefault.jpg)](https://youtu.be/imEHsgvJbYo)
+
 
 ---
 ## ⭐ Support the Project  
