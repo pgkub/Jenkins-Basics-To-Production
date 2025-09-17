@@ -7,7 +7,7 @@ This repository is your one-stop hub for all the Jenkins pipelines, configuratio
 
 ### YouTube Playlist for this Course
 
-[Jenkins: Basics to Production Playlist](https://www.youtube.com/@CloudWithVarJosh04) *(Link will be updated as lectures are published)*
+[Jenkins: Basics to Production Playlist](https://www.youtube.com/playlist?list=PLmPit9IIdzwSiYCKOtXUGNwytXXiJ8Rv8)
 
 ---
 
