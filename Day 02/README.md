@@ -1,12 +1,55 @@
-# Day 2: Why CI/CD? Introducing Jenkins
+# Day 2: CI/CD Explained | How Pipelines Work & Branching Strategies
 
 ## Video reference for Day 2 is the following:
 
+[![Watch the video](https://img.youtube.com/vi/szPE1NKc614/maxresdefault.jpg)](https://www.youtube.com/watch?v=szPE1NKc614&ab_channel=CloudWithVarJosh)
 
 
 ---
 ## ⭐ Support the Project  
 If this **repository** helps you, give it a ⭐ to show your support and help others discover it! 
+
+---
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Git & Branching: The Essentials for CI/CD](#git--branching-the-essentials-for-cicd)
+  - [What is Git?](#what-is-git)
+  - [Where to host your Git repo (remotes)](#where-to-host-your-git-repo-remotes)
+  - [What are branches?](#what-are-branches)
+  - [What is a PR/MR?](#what-is-a-prmr)
+  - [Protected branches & status checks](#protected-branches--status-checks)
+  - [How Git fits CI/CD (quick mental model)](#how-git-fits-cicd-quick-mental-model)
+  - [Quick glossary](#quick-glossary)
+- [Continuous Practices in DevOps](#continuous-practices-in-devops)
+  - [What is CI/CD?](#what-is-cicd)
+  - [The core “continuous” practices (10,000-ft view)](#the-core-continuous-practices-10000-ft-view)
+    - [1. Continuous Integration (CI)](#1-continuous-integration-ci)
+    - [2. Continuous Testing (CT)](#2-continuous-testing-ct)
+    - [3. Continuous Delivery (CD)](#3-continuous-delivery-cd)
+    - [4. Continuous Deployment (CDp)](#4-continuous-deployment-cdp)
+    - [5. Continuous Monitoring (CM)](#5-continuous-monitoring-cm)
+- [Continuous Integration (CI)](#continuous-integration-ci-1)
+  - [Where CI fits in your branching strategy](#where-ci-fits-in-your-branching-strategy)
+- [GitFlow-Based CI/CD: Environment Branches](#gitflow-based-cicd-environment-branches)
+  - [Step-by-step (numbers match the diagram)](#step-by-step-numbers-match-the-diagram)
+- [Promotion PR: `dev → stage` (Deploy-Before-Merge Flow)](#promotion-pr-dev--stage-deploy-before-merge-flow)
+  - [What happened earlier on `dev` (input to promotion)](#what-happened-earlier-on-dev-input-to-promotion)
+  - [Stage PR gates (repo rules)](#stage-pr-gates-repo-rules)
+  - [1 Open PR: `dev → stage`](#1-open-pr-dev--stage)
+  - [2 Stage Promotion Pipeline (runs on the PR)](#2-stage-promotion-pipeline-runs-on-the-pr)
+  - [3 Stage environment (what’s running)](#3-stage-environment-whats-running)
+  - [4 PR status & merge decision](#4-pr-status--merge-decision)
+  - [Why the strategies differ: speed vs. safety](#why-the-strategies-differ-speed-vs-safety)
+- [Promotion PR: `stage → prod` (Production Gate)](#promotion-pr-stage--prod-production-gate)
+- [Trunk-Based CI/CD: Environment Promotions](#trunk-based-cicd-environment-promotions)
+  - [Diagram at a glance](#diagram-at-a-glance)
+  - [Guardrails on `main` (protected branch)](#guardrails-on-main-protected-branch)
+  - [End-to-end flow (numbers match the diagram)](#end-to-end-flow-numbers-match-the-diagram)
+- [Jenkins in this picture (why & what)](#jenkins-in-this-picture-why--what)
+- [Conclusion](#conclusion)
+- [References](#references)
 
 ---
 
@@ -29,6 +72,8 @@ In previous lecture, we answered *why* reliable builds matter. Today we connect 
 
 
 ## Git & Branching: The Essentials for CI/CD
+
+![Alt text](/images/2a.png)
 
 ### What is Git?
 
@@ -126,6 +171,8 @@ Modern DevOps isn’t just about writing code—it’s about moving changes **fr
 
 ### The core “continuous” practices (10,000-ft view)
 
+![Alt text](/images/2b.png)
+
 #### 1. Continuous Integration (CI)
 
 * **Build & test every push/PR automatically.** Each commit/PR kicks off a pipeline that checks out code, installs deps, and runs scripted steps without human action.
@@ -188,6 +235,8 @@ We integrate **small, frequent changes** via **pull requests** into protected br
 
 **GitFlow-based** and **Trunk-based** are **branching strategies**—i.e., version-control workflows that define **how teams use Git branches** to integrate code and ship releases. CI (build → test → status) works in both; what changes is **where** CI triggers and **how** code/artifacts move between environments.
 
+![Alt text](/images/2c.png)
+
 1. **GitFlow-Based CI/CD: Environment Branches**
     * **Model:** Multiple long-lived branches mirror environments (**`dev` → `stage` → `prod`**).
     * **Flow:** Devs merge feature branches into `dev`, then raise **promotion PRs** `dev→stage` and `stage→prod`.
@@ -236,10 +285,10 @@ Great point—here’s a cleaned-up mental model that reflects that:
 **Tagline:** *Environment branches with merges between them; **PRs gate each hop***.
 **Notes:** Clear release windows and change records; more merge overhead and longer-lived branches.
 
+![Alt text](/images/2d.png)
+
 **What the diagram shows:** the journey of one change from a **feature branch** to a protected **`dev`** branch using a **PR (pull/merge request)**.
 >A **protected branch** is a repository rule-set that **blocks direct pushes/force-pushes** and **allows merges only via PRs** that meet guardrails—typically **green CI status checks** and **required reviews** (often also “up to date with base,” signed commits, and linear history).
-
-
 
 ### Step-by-step (numbers match the diagram)
 
@@ -283,7 +332,6 @@ This flow promotes a **release candidate** from `dev` to **Stage**. The promotio
 
 ---
 
-Here’s a single, streamlined section you can drop in:
 
 ### What happened earlier on `dev` (input to promotion)
 
@@ -334,6 +382,8 @@ Configure these on the `stage` branch so a PR **cannot merge** until the right t
 > These are *repo gates*. They’re cheap checks and required statuses; if any are red, the PR **can’t merge**.
 
 ---
+
+![Alt text](/images/2e.png)
 
 ### 1 Open PR: `dev → stage`
 
@@ -437,6 +487,8 @@ The **exact digest** from the manifest is now running in Stage, configured with 
 
 ## Promotion PR: `stage → prod` (Production Gate)
 
+![Alt text](/images/2f.png)
+
 This flow mirrors **dev → stage**: you **promote the same artifact by digest**, run checks **during the PR**, and **merge only when the environment is healthy**. The differences at Production are (1) **stricter pre-deploy gates** (approvals/change windows, prod config validation, flags default OFF) and (2) **focused post-deploy verification** (SLO guardrails + short synthetics, not Stage’s heavy suites). Below are the key deltas to highlight.
 
 * **Open a promotion PR that references the exact Stage-proven artifact.** Include the **image** and immutable **digest**, the **commit/version**, and a link to the manifest. Production branch rules are stricter: **PRs only**, **up-to-date with base**, **manifest reachable**, **config renders cleanly**, **Stage run is green for this digest**, and **more reviewers** (e.g., TL + on-call/QA or change approver/maintenance window if required).
@@ -471,6 +523,8 @@ This flow mirrors **dev → stage**: you **promote the same artifact by digest**
 
 ### Diagram at a glance
 
+![Alt text](/images/2g.png)
+
 One **source of truth (`main`)**; **Feature → `main` → Dev → Staging → Prod**. CI validates the PR’s **merge result**; the **post-merge pipeline builds once** and publishes an **image + digest** + `manifest.json`. Promotions read the manifest and **deploy by digest** to each env.
 
 ---
@@ -484,6 +538,8 @@ One **source of truth (`main`)**; **Feature → `main` → Dev → Staging → P
 ---
 
 ### End-to-end flow (numbers match the diagram)
+
+![Alt text](/images/2g.png)
 
 #### 1) Commit & push (feature branch)
 
