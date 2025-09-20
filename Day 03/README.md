@@ -2,6 +2,7 @@
 
 ## Video reference for Day 3 is the following:
 
+[![Watch the video](https://img.youtube.com/vi/woZ1fsholS4/maxresdefault.jpg)](https://www.youtube.com/watch?v=woZ1fsholS4&ab_channel=CloudWithVarJosh)
 
 
 ---
@@ -46,6 +47,8 @@ Welcome to **Day 3**. Today we move from “why CI/CD” to **hands-on with Jenk
 ---
 
 ## What is Jenkins
+
+![Alt text](/images/3b.png)
 
 **Open-source automation server**
 Jenkins is a free, community-maintained automation server that runs your build, test, and delivery steps. It centralizes these tasks so teams don’t rely on ad-hoc scripts on developer machines, improving repeatability and visibility.
@@ -94,7 +97,7 @@ Jenkins is a **community-governed** project under the **Continuous Delivery Foun
 
 Jenkins can be set up in multiple ways—**from laptop labs to enterprise clusters**—depending on your needs for **speed, control, and scale**. The sections below outline each method (Docker, VM/Bare Metal, Kubernetes, Cloud Marketplace, CloudBees), when to use it, and key trade-offs.
 
-
+![Alt text](/images/3c.png)
 ---
 
 ### 1) Docker Container
@@ -279,6 +282,8 @@ If the container dies or is replaced, reattach the same volume and Jenkins resto
 ---
 
 ## Who uses Jenkins: roles and responsibilities
+
+![Alt text](/images/3d.png)
 
 **Jenkins Administrators (DevOps):**
 
