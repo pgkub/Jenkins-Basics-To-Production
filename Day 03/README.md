@@ -12,34 +12,34 @@ If this **repository** helps you, give it a ⭐ to show your support and help ot
 
 ## Table of Contents
 
-* [Introduction](#introduction)
-* [What is Jenkins](#what-is-jenkins)
-* [Jenkins Installation Options (Local to Enterprise)](#jenkins-installation-options-local-to-enterprise)
+* [Introduction](#introduction)  
+* [What is Jenkins](#what-is-jenkins)  
+* [Jenkins Installation Options (Local to Enterprise)](#jenkins-installation-options-local-to-enterprise)  
 
-  * [1) Docker Container](#1-docker-container)
-  * [2) VM / Bare Metal](#2-vm--bare-metal)
-  * [3) Kubernetes (Jenkins on K8s)](#3-kubernetes-jenkins-on-k8s)
-  * [4) Cloud Marketplace Images (AWS/Azure/GCP)](#4-cloud-marketplace-images-awsazuregcp)
-  * [5) CloudBees Jenkins (Enterprise CI)](#5-cloudbees-jenkins-enterprise-ci)
-* [Quick chooser (when to pick what)](#quick-chooser-when-to-pick-what)
-* [Lab setup: Jenkins in Docker](#lab-setup-jenkins-in-docker)
+  * [1) Docker Container](#1-docker-container)  
+  * [2) VM / Bare Metal](#2-vm--bare-metal)  
+  * [3) Kubernetes (Jenkins on K8s)](#3-kubernetes-jenkins-on-k8s)  
+  * [4) Cloud Marketplace Images (AWS/Azure/GCP)](#4-cloud-marketplace-images-awsazuregcp)  
+  * [5) CloudBees Jenkins (Enterprise CI)](#5-cloudbees-jenkins-enterprise-ci)  
+* [Quick chooser (when to pick what)](#quick-chooser-when-to-pick-what). 
+* [Lab setup: Jenkins in Docker](#lab-setup-jenkins-in-docker)  
 
-  * [Understanding `/var/jenkins_home` (your Jenkins state)](#understanding-varjenkins_home-your-jenkins-state)
-* [Who uses Jenkins: roles and responsibilities](#who-uses-jenkins-roles-and-responsibilities)
-* [First steps with Jenkins jobs (start with Freestyle)](#first-steps-with-jenkins-jobs-start-with-freestyle)
+  * [Understanding `/var/jenkins_home` (your Jenkins state)](#understanding-varjenkins_home-your-jenkins-state)  
+* [Who uses Jenkins: roles and responsibilities](#who-uses-jenkins-roles-and-responsibilities)  
+* [First steps with Jenkins jobs (start with Freestyle)](#first-steps-with-jenkins-jobs-start-with-freestyle)  
 
-  * [Step 0 — Create the job](#step-0--create-the-job)
-  * [Step 1 — Where do commands run? (Execute Shell)](#step-1--where-do-commands-run-execute-shell)
-  * [Step 2 — Produce and archive an artifact](#step-2--produce-and-archive-an-artifact)
-  * [Step 3 — SCM checkout (Git) + tool requirements](#step-3--scm-checkout-git--tool-requirements)
-  * [Using Maven (two beginner-friendly approaches)](#using-maven-two-beginner-friendly-approaches)
+  * [Step 0 — Create the job](#step-0--create-the-job)  
+  * [Step 1 — Where do commands run? (Execute Shell)](#step-1--where-do-commands-run-execute-shell)  
+  * [Step 2 — Produce and archive an artifact](#step-2--produce-and-archive-an-artifact)  
+  * [Step 3 — SCM checkout (Git) + tool requirements](#step-3--scm-checkout-git--tool-requirements)  
+  * [Using Maven (two beginner-friendly approaches)](#using-maven-two-beginner-friendly-approaches)  
 
-    * [A) Manage Jenkins → Tools (preferred)](#a-manage-jenkins--tools-preferred-for-freestylepipeline-no-os-install-needed)
-    * [B) OS-level install on the node](#b-os-level-install-on-the-node-quick-lab-hack)
-  * [Which to pick (simple rule)](#which-to-pick-simple-rule)
-  * [Key points to remember](#key-points-to-remember)
-* [Conclusion](#conclusion)
-* [References](#references)
+    * [A) Manage Jenkins → Tools (preferred)](#a-manage-jenkins--tools-preferred-for-freestylepipeline-no-os-install-needed)  
+    * [B) OS-level install on the node](#b-os-level-install-on-the-node-quick-lab-hack)  
+  * [Which to pick (simple rule)](#which-to-pick-simple-rule)  
+  * [Key points to remember](#key-points-to-remember)  
+* [Conclusion](#conclusion)  
+* [References](#references)  
 
 ---
 
