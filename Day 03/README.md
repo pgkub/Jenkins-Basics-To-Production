@@ -216,19 +216,6 @@ helm upgrade --install jenkins jenkins/jenkins \
 We’ll learn the **basics on a single-node Jenkins running in Docker**—fast to spin up, easy to reset.
 When we switch to **projects and production patterns**, we’ll use **VM-based** and **Kubernetes-based** installs.
 
-### Prepare the volume (one-time)
-
-Create a named volume and set ownership to the Jenkins user (uid/gid **1000**) using a temporary container named **`temporary-container`**:
-
-```bash
-docker volume create jenkins_home
-
-docker run --rm --name temporary-container -u root \
-  -v jenkins_home:/var/jenkins_home \
-  jenkins/jenkins:lts \
-  bash -lc 'chown -R 1000:1000 /var/jenkins_home'
-```
-
 ### Run Jenkins (Docker)
 
 ```bash
@@ -288,26 +275,6 @@ If the container dies or is replaced, reattach the same volume and Jenkins resto
 * Test **backup/restore** regularly.
 
 > **Note:** If `/var/jenkins_home` is on a persistent volume and you reuse that same volume when recreating the container, **all prior state returns**—jobs, build history, credentials, configs, and **plugins**. Keep the Jenkins image/version consistent, ensure ownership (`jenkins:jenkins`), and back up before changes.
-
----
-
-### Recreate/reset behavior (keeping or resetting data)
-
-* If you **reuse the same volume name** (e.g., `jenkins_home`) when you delete and recreate the container, Jenkins will **come back with all previous data**.
-* If you **don’t** want to retain data, **delete the volume first** or use a **new volume name**.
-
-**Commands**
-
-```bash
-# See volumes
-docker volume ls
-
-# Remove the old volume (data loss!)
-docker volume rm jenkins_home
-
-# Or use a different name when starting fresh
-docker run -d --name jenkins ... -v jenkins_home_new:/var/jenkins_home jenkins/jenkins:lts
-```
 
 ---
 
