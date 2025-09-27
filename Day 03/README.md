@@ -1,4 +1,4 @@
-# Day 3: What is Jenkins
+# Day 3: What is Jenkins? Jenkins Installation Options, Docker Setup & Freestyle Job
 
 ## Video reference for Day 3 is the following:
 
