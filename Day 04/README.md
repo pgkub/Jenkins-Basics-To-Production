@@ -2,6 +2,8 @@
 
 ## Video reference for Day 4 is the following:
 
+[![Watch the video](https://img.youtube.com/vi/56iDHrLgqxw/maxresdefault.jpg)](https://www.youtube.com/watch?v=56iDHrLgqxw)
+
 ---
 ## ⭐ Support the Project  
 If this **repository** helps you, give it a ⭐ to show your support and help others discover it! 
@@ -97,6 +99,8 @@ A quick, well-structured map of what’s inside Jenkins’ home—**what to care
 * `queue.xml.bak` — Last saved build queue snapshot (ephemeral)
 
 > ### Where jobs live vs. where they run (Controller vs. Agents)
+
+![Alt text](/images/4a.png)
 >
 > **Control plane state (controller):** Job configs, build records/logs, credentials, plugins, and archived artifacts live under `$JENKINS_HOME/jobs/...`.
 > **Execution (agents):** Build steps run on the **assigned node**. Each agent uses its own **workspace** (under its *Remote root*) as scratch space.
